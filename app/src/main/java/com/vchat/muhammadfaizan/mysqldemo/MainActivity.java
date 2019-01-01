@@ -54,12 +54,19 @@ public class MainActivity extends AppCompatActivity  {
         edtPassword = findViewById(R.id.edtPass);
         edtEmail = findViewById(R.id.edtEmail);
         btnRegister = findViewById(R.id.btnRegister);
+        txtLogin = findViewById(R.id.txtLogin);
         mDialog = new ProgressDialog(this);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+        txtLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,HomeActivity.class));
             }
         });
 
@@ -91,6 +98,7 @@ public class MainActivity extends AppCompatActivity  {
                         mDialog.dismiss();
                         try {
                             Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_LONG).show();
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
